@@ -33,6 +33,10 @@ jobs:
             - v1-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
+      
+      - run:
+          name: chmod permissions
+          command: chmod +x ./gradlew
 
       - run: ./gradlew dependencies
 
@@ -42,10 +46,6 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests and package
-      - run:
-          name: chmod permissions
-          command: chmod +x ./gradlew
-
       - run: ./gradlew clean test
 
       - run:
