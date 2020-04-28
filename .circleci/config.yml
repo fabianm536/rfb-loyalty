@@ -43,9 +43,9 @@ jobs:
 
       # run tests and package
       - run:
-        name: chmod permissions
-        command: chmod +x ./gradlew
-        
+          name: chmod permissions
+          command: chmod +x ./gradlew
+
       - run: ./gradlew clean test
 
       - run:
